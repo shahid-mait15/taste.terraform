@@ -161,7 +161,7 @@ resource "null_resource" "nullmount" {
       "sudo mkfs.ext4 /dev/xvdh",
       "sudo mount /dev/xvdh /var/www/html",
       "sudo rm -rf /var/www/html/*",
-      "sudo git clone https://github.com/vineets300/Webpage1.git  /var/www/html"
+      "sudo git clone https://github.com/shahid-mait15/taste.terraform.git  /var/www/html"
     ]
   }
 }
@@ -187,7 +187,8 @@ resource "aws_s3_bucket" "mybucket009876" {
   }
 
  provisioner "local-exec" {
-    command = "git clone https://github.com/vineets300/Webpage1.git web-server-image"
+   
+    command = "git clone https://github.com/shahid-mait15/taste.terraform.git web-server-image"
  }
 
 }
@@ -206,7 +207,7 @@ resource "aws_s3_bucket_object" "Object1" {
   bucket = "mybucket009876"
   acl    = "public-read-write"
   key = "Demo1.PNG"
-  #source = "web-server-image/Demo1.PNG"
+  source = "web-server-image/Demo1.PNG"
 }
 
 #Create a Cloudfront distribution for CDN
